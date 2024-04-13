@@ -1,0 +1,10 @@
+// 设置引入文件路径别名
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*":["./*"]
+        }
+    },
+    "exclude": ["node_modules"]
+}
