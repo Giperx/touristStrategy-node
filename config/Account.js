@@ -3,8 +3,8 @@ module.exports = {
     BASE_URL:'mongodb://127.0.0.1/lvyou-project',
 
     // 阿里云短信验证服务
-    ALI_KEYID: 'LTAI5tN6yfwaxw6iB3gKeNpw',
-    ALI_KEYSECRET: 'vQ3c922S2XgtPlmZhdXGJDibLCygmy',
+     
     ALI_SIGNNAME: '旅游攻略平台',
     ALI_CODE: 'SMS_296941485',
+    
 }
