@@ -24,12 +24,40 @@ function nullValue(arrAy) {
 // 登录数据校验
 const Login = (mobile, password) => {
     unDefined([mobile, password])
-    nullValue([
-        { value: mobile, 'tips': '请输入手机号码' },
-        { value: password, 'tips': '请输入密码' }
+    nullValue([ // 校验是否为空
+        { value: mobile, 'tips': '输入为空，请输入手机号码' },
+        { value: password, 'tips': '输入为空，请输入密码' }
     ])
 }
 
+// 发送验证码相关，对手机号校验
+const mobilever = /^1[3-9]\d{9}$/
+const Vercode = (phoneNumbers) => {
+    unDefined([phoneNumbers])
+    nullValue([
+        { value : phoneNumbers, 'tips' : '输入为空，请输入手机号码' }
+    ]) // 校验是否为空
+    if (!mobilever.test(phoneNumbers)) {
+        throw new result('请输入正确格式的手机号码！！', 422)
+    }
+}
+
+// 匹配小程序端：通过 手机号+验证码 进行登录
+// 对前端传回数据进行规范校验
+const Mobileregistration = (mobile, code, bizId) => {
+    unDefined([mobile, code, bizId])
+    nullValue([
+        { value: mobile, 'tips': '输入为空，请输入手机号码' },
+        { value: code, 'tips': '输入为空，请输验证码' },
+        { value: bizId, 'tips' : '输入为空，请输入bizId(调试相关)' }
+    ]) // 校验是否为空
+    if (!mobilever.test(mobile)) {
+        throw new result('请输入正确格式的手机号码！！', 422)
+    }
+}
+
 module.exports = {
-    Login
+    Login,
+    Vercode,
+    Mobileregistration
 }
