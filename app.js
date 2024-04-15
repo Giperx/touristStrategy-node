@@ -37,8 +37,10 @@ mongoose.connect(BASE_URL)
 //----所有接口
 const login = require('@/routes/user/index')
 const vercode = require('@/routes/user/index')
+// const mobileregistration = require('@/routes/user/index')
 router.use('/apif', login)
 router.use('/apif', vercode)
+// router.use('/apif', mobile-registration)
 // 将路由绑定到应用
 app.use(router.routes()).use(router.allowedMethods())
 app.listen(8900)
