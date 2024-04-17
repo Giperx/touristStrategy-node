@@ -35,12 +35,33 @@ mongoose.connect(BASE_URL)
 
 
 //----所有接口
+//--------------接口小程序端----------------
+// 登录注册用户账号
 const login = require('@/routes/user/index')
-const vercode = require('@/routes/user/index')
-// const mobileregistration = require('@/routes/user/index')
+// 游记
+const article = require('@/routes/article/index')
+// 首页
+const home = require('@/routes/home/index')
+// 搜索游记
+const search = require('@/routes/search-travel/index')
+// 目的地
+const found = require('@/routes/found/index')
+// 旅游结伴
+const companion = require('@/routes/companion/index')
+
+//--------------接口后台管理端----------------
+const pcapi = require('@/routes/pc-admin/index')
+// 数据分析
+const analysis = require('@/routes/pc-data-analysis/index')
+
 router.use('/apif', login)
-router.use('/apif', vercode)
-// router.use('/apif', mobile-registration)
+router.use('/apif', article)
+router.use('/apif', pcapi)
+router.use('/apif', home)
+router.use('/apif', search)
+router.use('/apif', found)
+router.use('/apif', companion)
+router.use('/apif', analysis)
 // 将路由绑定到应用
 app.use(router.routes()).use(router.allowedMethods())
 app.listen(8900)

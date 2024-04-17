@@ -1,3 +1,4 @@
+// 处理用户登录相关
 const router = require('@koa/router')()
 const {modelUser} = require('@/models/collection') // 引入数据模型
 const { // 引入数据校验
@@ -6,10 +7,9 @@ const { // 引入数据校验
     Mobileregistration,
     Uploadpassword,
     Modifytheuser
-} = require('@/config/vailData') 
+} = require('@/config/valiData') 
 const { verCode, queryCode } = require('@/alicode/index') // 发送短信、查询并校验短信
 const {gentoken} = require('@/token/jwt')
-const { generateCode } = require('@/alicode/gencode')
 const { Auth } = require('@/token/auth')
 const crypto = require('crypto')
 const moment = require('moment')
